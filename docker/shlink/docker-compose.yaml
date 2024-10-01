@@ -46,8 +46,8 @@ services:
 #get to this by going to ipaddress:PORT.  It then uses the container above for the short URLs.  Add more of these for any other domains and just change the shlink server name and url
   shlink-web:
     image: shlinkio/shlink-web-client:stable
-    container_name: Shlink-WEB
-    hostname: shlink-web
+    container_name: shlink_web
+    hostname: shlink_web
     security_opt:
       - no-new-privileges:true
     ports:
