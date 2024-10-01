@@ -1,6 +1,6 @@
 services:
   db:
-    image: mysql:9.0
+    image: mysql:8.0
     container_name: ${DB_CONTAINER_NAME}
     volumes:
       - db:/var/lib/mysql
