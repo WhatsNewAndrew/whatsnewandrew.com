@@ -1,8 +1,8 @@
 services:
   shlink-db:
     image: postgres:16
-    container_name: Shlink-DB
-    hostname: shlink-db
+    container_name: Shlink_DB
+    hostname: shlink_db
     security_opt:
       - no-new-privileges:true
 #    healthcheck:
