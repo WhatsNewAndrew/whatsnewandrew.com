@@ -1,7 +1,7 @@
 services:
   db:
     image: mysql:9.0
-    container_name: ${db_container_name}
+    container_name: ${DB_CONTAINER_NAME}
     volumes:
       - db:/var/lib/mysql
     restart: always
@@ -19,7 +19,7 @@ services:
     image: wordpress
     ports:
       - ${PORT}:80
-    container_name: ${wp_container_name}
+    container_name: ${WP_CONTAINER_NAME}
     volumes:
       - wpdata:/var/www/html
     restart: always
