@@ -46,16 +46,16 @@ services:
 #get to this by going to ipaddress:PORT.  It then uses the container above for the short URLs.  Add more of these for any other domains and just change the shlink server name and url
   shlink-web:
     image: shlinkio/shlink-web-client:stable
-    container_name: shlink_web
-    hostname: shlink_web
+    container_name: shlink_web_${URL1}
+    hostname: shlink_web_${URL1}
     security_opt:
       - no-new-privileges:true
     ports:
       - ${SHLINK_WEB_PORT1}:8080
     environment:
-      - SHLINK_SERVER_NAME=${SHLINK_SERVER_NAME}
-      - SHLINK_SERVER_URL=${SHLINK_SERVER_URL}
-      - SHLINK_SERVER_API_KEY=${SHLINK_SERVER_API_KEY}
+      - SHLINK_SERVER_NAME=${SHLINK_SERVER_NAME1}
+      - SHLINK_SERVER_URL=${SHLINK_SERVER_URL1}
+      - SHLINK_SERVER_API_KEY=${SHLINK_SERVER_API_KEY1}
     restart: always
     depends_on:
       - shlink
