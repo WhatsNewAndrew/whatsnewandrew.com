@@ -20,8 +20,8 @@ services:
 
   shlink:
     image: shlinkio/shlink:stable
-    container_name: Shlink
-    hostname: shlink
+    container_name: shlink_url
+    hostname: shlink_url
     security_opt:
       - no-new-privileges:true
     ports:
