@@ -32,3 +32,4 @@ services:
       - "com.centurylinklabs.watchtower.enable=false" #Do not update with watchtower
 volumes:
   db:
+  wpdata:
