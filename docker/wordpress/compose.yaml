@@ -3,7 +3,7 @@ services:
     image: mysql:8.0
     container_name: ${DB_CONTAINER_NAME}
     volumes:
-      - db:/var/lib/mysql
+      - ${PATH_TO_DB}:/var/lib/mysql #db
     restart: always
     environment:
       MYSQL_DATABASE: ${MYSQL_DATABASE}
@@ -21,7 +21,7 @@ services:
       - ${PORT}:80
     container_name: ${WP_CONTAINER_NAME}
     volumes:
-      - wp_data:/var/www/html
+      - ${PATH_TO_WPDATA}:/var/www/html #wp_data
     restart: always
     environment:
       WORDPRESS_DB_HOST: db:3306
