@@ -21,8 +21,8 @@ services:
       - ${PORT}:80
     container_name: ${WP_CONTAINER_NAME} #I do this so I can run multiple instances on the same server and not conflict with names
     volumes:
-      #- ${PATH_TO_WPDATA}:/var/www/html 
-      - wp_data:/var/www/html
+      - ${PATH_TO_WPDATA}:/var/www/html 
+      #- wp_data:/var/www/html
     restart: always
     environment:
       WORDPRESS_DB_HOST: db:3306
