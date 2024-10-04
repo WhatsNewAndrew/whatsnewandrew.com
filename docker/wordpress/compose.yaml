@@ -1,7 +1,7 @@
 services:
   db:
     image: mysql:8.0
-    container_name: ${DB_CONTAINER_NAME}
+    container_name: ${DB_CONTAINER_NAME} #I do this so I can run multiple instances on the same server and not conflict with names
     volumes:
       - db_data:/var/lib/mysql
     restart: always
@@ -12,14 +12,14 @@ services:
       MYSQL_RANDOM_ROOT_PASSWORD: '1'
     labels:
       - "com.centurylinklabs.watchtower.enable=false" #Do not update with watchtower
-      
+
   wordpress_whatsnewandrew:
     depends_on:
       - db
     image: wordpress
     ports:
       - ${PORT}:80
-    container_name: ${WP_CONTAINER_NAME}
+    container_name: ${WP_CONTAINER_NAME} #I do this so I can run multiple instances on the same server and not conflict with names
     volumes:
       - ${PATH_TO_WPDATA}:/var/www/html #wp_data
     restart: always
