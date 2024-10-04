@@ -22,7 +22,6 @@ services:
     container_name: wordpress
     volumes:
       - ${PATH_TO_WPDATA}:/var/www/html
-      #- wp_data:/var/www/wordpress
     restart: always
     environment:
       WORDPRESS_DB_HOST: db:3306
@@ -33,9 +32,3 @@ services:
       - "com.centurylinklabs.watchtower.enable=false" #Do not update with watchtower
 volumes:
     db_data: {} 
-    wp_data:
-      driver: local
-      driver_opts:
-        type: none
-        o: bind
-        device: /var/www/wordpress
