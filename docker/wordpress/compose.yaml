@@ -1,7 +1,7 @@
 services:
   db:
     image: mysql:8.0
-    container_name: ${DB_CONTAINER_NAME} #I do this so I can run multiple instances on the same server and not conflict with names
+    container_name: wordpress_db
     volumes:
       - db_data:/var/lib/mysql
     restart: always
@@ -19,10 +19,10 @@ services:
     image: wordpress
     ports:
       - ${PORT}:80
-    container_name: ${WP_CONTAINER_NAME} #I do this so I can run multiple instances on the same server and not conflict with names
+    container_name: wordpress
     volumes:
-      - ${PATH_TO_WPDATA}:/var/www/html 
-      #- wp_data:/var/www/html
+      #- ${PATH_TO_WPDATA}:/var/www/html 
+      - wp_data:/var/www/html
     restart: always
     environment:
       WORDPRESS_DB_HOST: db:3306
@@ -38,4 +38,4 @@ volumes:
       driver_opts:
         type: none
         o: bind
-        device: /var/www/html/${WP_CONTAINER_NAME}
+        device: /var/www/wordpress
