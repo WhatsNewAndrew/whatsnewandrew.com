@@ -21,8 +21,8 @@ services:
       - ${PORT}:80
     container_name: wordpress
     volumes:
-      #- ${PATH_TO_WPDATA}:/var/www/wordpress
-      - wp_data:/var/www/html
+      #- ${PATH_TO_WPDATA}:/var/www/html
+      - wp_data:/var/www/wordpress
     restart: always
     environment:
       WORDPRESS_DB_HOST: db:3306
